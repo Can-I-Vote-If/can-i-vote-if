@@ -5,16 +5,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Can I Vote If? - Determine if you're eligible to register to vote!</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-	 crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-	<h1>Can I Vote If?</h1>
-	<div>test</div>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-lg-4 col-lg-offset-4 title-text">Can I Vote If?</h1>
+        </div>
 	<form id="rendered-form">
 		<div class="rendered-form">
-			<div class="fb-select form-group field-where-do-you-live"><label for="where-do-you-live" class="fb-select-label">Where do you live?<span class="fb-required">*</span></label>
+            <div class="row">
+            <div class="col-sm-11 col-sm-offset-1">
+                 <h3 class="subHead">Basic Infomation</h3>
+            </div>
+            <div class="col-sm-4 col-sm-offset-1">
+            			<div class="fb-select form-group field-where-do-you-live"><label for="where-do-you-live" class="fb-select-label">Where do you live?<span class="fb-required">*</span></label>
 				<select
 				 class="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true">
 					<option disabled="null" selected="null">Select</option>
@@ -22,21 +28,24 @@
 					<option value="alaska" id="where-do-you-live-1">Alaska</option>
 					</select>
 			</div>
-			<div class="fb-radio-group form-group field-us-citizen"><label for="us-citizen" class="fb-radio-group-label">Are you a U.S. Citizen?<span class="fb-required">*</span></label>
-				<div
-				 class="radio-group">
-					<div class="radio"><input name="us-citizen" id="us-citizen-0" required="required" aria-required="true" value="yes" type="radio" checked="checked">
-						<label
-						 for="us-citizen-0">Yes</label>
-					</div>
-					<div class="radio"><input name="us-citizen" id="us-citizen-1" required="required" aria-required="true" value="no" type="radio"><label for="us-citizen-1">No</label></div>
-			</div>
-		</div>
-		<div class="fb-date form-group field-birthdate"><label for="birthdate" class="fb-date-label">Date Field<span class="fb-required">*</span></label><input type="date" class="form-control"
-			 name="birthdate" id="birthdate" required="required" aria-required="true"></div>
-		</div>
-	</form>
 
+            </div>
+            <div class="col-sm-2">
+                <div class="fb-radio-group form-group field-us-citizen"><label for="us-citizen" class="fb-radio-group-label">Are you a U.S. Citizen?<span class="fb-required">*</span></label><br/>
+                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" name="us-citizen" id="us-citizen-0" required="required" aria-required="true" value="yes" checked="checked">Yes</button>
+                  <button type="button" class="btn btn-default" name="us-citizen" id="us-citizen-1" required="required" aria-required="true" value="no">No</button>
+                </div>
+            </div>
+		</div>
+            <div class="col-sm-4">		<div class="fb-date form-group field-birthdate"><label for="birthdate" class="fb-date-label">Date Field<span class="fb-required">*</span></label><input type="date" class="form-control"
+			 name="birthdate" id="birthdate" required="required" aria-required="true"></div>
+		</div>       
+            </div>
+ 
+        </div>
+	</form>
+    </div>
 	
 	<!-- Bootstrap Requirements -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -45,5 +54,6 @@
 	crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 	crossorigin="anonymous"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
