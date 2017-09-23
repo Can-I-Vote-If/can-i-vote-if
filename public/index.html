@@ -12,7 +12,32 @@
 <body>
 	<h1>Can I Vote If?</h1>
 	
+	<form id="rendered-form">
+		<div class="rendered-form">
+			<div class="fb-select form-group field-where-do-you-live"><label for="where-do-you-live" class="fb-select-label">Where do you live?<span class="fb-required">*</span></label>
+				<select
+				 class="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true">
+					<option disabled="null" selected="null">Select</option>
+					<option value="alabama" id="where-do-you-live-0">Alabama</option>
+					<option value="alaska" id="where-do-you-live-1">Alaska</option>
+					</select>
+			</div>
+			<div class="fb-radio-group form-group field-us-citizen"><label for="us-citizen" class="fb-radio-group-label">Are you a U.S. Citizen?<span class="fb-required">*</span></label>
+				<div
+				 class="radio-group">
+					<div class="radio"><input name="us-citizen" id="us-citizen-0" required="required" aria-required="true" value="yes" type="radio" checked="checked">
+						<label
+						 for="us-citizen-0">Yes</label>
+					</div>
+					<div class="radio"><input name="us-citizen" id="us-citizen-1" required="required" aria-required="true" value="no" type="radio"><label for="us-citizen-1">No</label></div>
+			</div>
+		</div>
+		<div class="fb-date form-group field-birthdate"><label for="birthdate" class="fb-date-label">Date Field<span class="fb-required">*</span></label><input type="date" class="form-control"
+			 name="birthdate" id="birthdate" required="required" aria-required="true"></div>
+		</div>
+	</form>
 
+	
 	<!-- Bootstrap Requirements -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	crossorigin="anonymous"></script>
