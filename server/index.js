@@ -32,31 +32,33 @@ if(process.env.NODE_ENV == 'production') {
 // what you would use in your code.
 
 //Define States
-var States = sequelize.define('states', {
+const States = sequelize.define('states', {
   name: {
     type: Sequelize.STRING,
 		field: 'name'
   },
   age: {
-    type: Sequelize.STRING,
+		type: Sequelize.STRING(1000),
 		field: 'age'
   },
   citizenship: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(1000),
 		field: 'citizenship',
 	},
 	residency: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(1000),
 		field: 'residency',
 	},
 	criminalHistory: {
-		type: Sequelize.STRING,
+		type: Sequelize.STRING(1000),
 		field: 'criminalHistory',
-	}, competence: {
-    type: Sequelize.STRING,
-    field: 'competence',
-  },	other: {
-		type: Sequelize.STRING,
+	},
+	competence: {
+		type: Sequelize.STRING(1000),
+		field: 'competence',
+	},
+	other: {
+		type: Sequelize.STRING(1000),
 		field: 'other',
 	},
 }, {
@@ -73,7 +75,8 @@ if(process.env.NODE_ENV !== 'production') {
 
     // Some sample projects
     var states = {
-      data: [ {
+			data: [
+			{
         name: 'Alabama',
         age: 'be 18 years old before any election',
         citizenship: 'be a citizen of the United States',
@@ -481,7 +484,7 @@ if(process.env.NODE_ENV !== 'production') {
         criminalHistory: '"not have been convicted of a felony, unless voting rights restored"',
         competence: 'not be currently adjudicated mentally incompetent',
         other: 'There is no other requirement' } ],
-      model: State
+      model: States
     };
 
     seed([
@@ -514,12 +517,26 @@ function startExpress() {
   // Get all states
   app.get('/api/states', (req, res) => {
     // Find all projects
-    State.findAll().then((projects) => {
-      res.json(projects);
+		States.findAll().then((states) => {
+			res.json(states);
     }).catch(err => {
       console.log(err);
     })
-  });
+	});
+	
+	// Get all states
+	app.get('/api/states/:name', (req, res) => {
+		// Find all States
+		States.findAll({
+			where: {
+				name: req.params.name,
+			}
+		}).then((currentState) => {
+			res.json(currentState);
+		}).catch(err => {
+			console.log(err);
+		})
+	});
 
   // Determine which port to listen on
   var port = process.env.PORT ? process.env.PORT : 3001
