@@ -8,7 +8,7 @@ export default class Results extends Component {
 		return (
 			<div id="results" className="row">
 				<div className="col-sm-12">
-					<h3 className="stateTitle"><span>Minnesota Voting Laws</span></h3>
+					<h3 className="stateTitle">Can you vote in Minnesota? <span id="answer" class="yes">Yes</span></h3>
 				</div>
 				<div className="col-sm-2 col-sm-offset-1">
 					<label className="eTitle">Citizenship <i className="fa fa-check" id="us-citizen" aria-hidden="true"></i></label>

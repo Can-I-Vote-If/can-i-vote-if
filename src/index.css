@@ -72,28 +72,6 @@ h3.stateTitle {
     overflow: hidden;
 }
 
-.stateTitle span {
-  background: #fff;
-  padding: 0 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.stateTitle:before {
-  background: #ccc;
-  content: "";
-  display: block;
-  height: 1px;
-  position: absolute;
-    top: 55%;
-  width: 60%;
-    margin-left: 20%;
-}
-
-.stateTitle:before {
-  left: 0;
-}
-
 #submit {
     margin-top: 10px;
     margin-bottom: 30px;
@@ -154,4 +132,20 @@ p   {
 
 #root   {
     margin-bottom: 50px;
+}
+
+span#answer {
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    background-color: green;
+    padding: 30px 10px;
+    height: 90px;
+}
+
+@media screen and (max-width: 480px) {
+    span#answer {
+        padding: 0px 16px;
+        margin-top: 5px;
+    }
 }
