@@ -28,10 +28,10 @@ class App extends Component {
 		return (
 			<form id="form" onSubmit={this.handleSubmit}>
 				<div className="row">
-					<div className="col-sm-11 col-sm-offset-1">
+					<div className="col-lg-11 col-lg-offset-1">
 						<h3 className="subHead">Basic Infomation</h3>
 					</div>
-					<div className="col-sm-4 col-sm-offset-1">
+					<div className="col-lg-4 col-lg-offset-1">
 						<div className="select form-group field-where-do-you-live">
 							<label htmlFor="where-do-you-live" className="select-label">Where do you live?<span className="required">*</span></label>
 							<select className="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true" defaultValue="Select State">
@@ -89,7 +89,7 @@ class App extends Component {
 							</select>
 						</div>
 					</div>
-					<div className="col-sm-2">
+					<div className="col-lg-2">
 						<div className="radio-group form-group field-us-citizen">
 							<label htmlFor="us-citizen" className="radio-group-label">Are you a U.S. Citizen?<span className="required">*</span></label>
 							<br />
@@ -99,7 +99,7 @@ class App extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-4">
+					<div className="col-lg-4">
 						<div className="date form-group field-birthdate">
 							<label htmlFor="birthdate" className="date-label">Birthday<span className="required">*</span></label>
 							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" />
