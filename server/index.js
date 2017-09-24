@@ -53,6 +53,10 @@ var States = sequelize.define('states', {
 		type: Sequelize.STRING,
 		field: 'criminalHistory',
 	},
+	competence: {
+		type: Sequelize.STRING,
+		field: 'competence',
+	},
 	other: {
 		type: Sequelize.STRING,
 		field: 'other',

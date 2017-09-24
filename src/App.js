@@ -2,12 +2,31 @@ import React, { Component } from 'react';
 import Results from './components/results';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: 'Please write an essay about your favorite DOM element.'
+		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({ value: event.target.value });
+	}
+
+	handleSubmit(event) {
+		alert('An essay was submitted: ' + this.state.value);
+		event.preventDefault();
+	}
+
 	checkForm() {
 		alert("Hey there!")
 	}
 	render() {
 		return (
-			<form id="form">
+			<form id="form" onSubmit={this.handleSubmit}>
 				<div className="row">
 					<div className="col-sm-11 col-sm-offset-1">
 						<h3 className="subHead">Basic Infomation</h3>
@@ -87,7 +106,7 @@ class App extends Component {
 						</div>
 					</div>
 					<div className="col-sm-2 col-sm-offset-5">
-						<button id="submit" className="btn btn-primary" onSubmit={this.checkForm.bind(this)} disabled>Find out your voting laws</button>
+						<input id="submit" className="btn btn-primary" type="submit" value="Find Out Your Voting Laws"/>	
 					</div>
 				</div>
 				<Results />
