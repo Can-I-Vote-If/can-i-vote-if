@@ -86,7 +86,7 @@ class App extends Component {
 							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" />
 						</div>
 					</div>
-					<div className="col-sm-2 col-sm-offset-5">
+					<div className="col-sm-12 parentButton">
 						<button id="submit" className="btn btn-primary" onSubmit={this.checkForm.bind(this)} disabled>Find out your voting laws</button>
 					</div>
 				</div>
