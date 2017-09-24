@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+
+html {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+}
+
+h1 {
+	text-align: center;
+}
+
+button.isClicked  {
+	color: white;
+	background-color: blue;
+}
+
+#us-citizen-0:hover, #us-citizen-0:active, #us-citizen-1:hover, #us-citizen-1:active   {
+	color: white;
+	background-color: blue;
+	opacity: 0.8;
+}
+
+.title-text	{
+	color: #666;
+	font-weight: 100;
+	/* letter-spacing: -2px; */
+	font-size: 48px;
+}
+
+.subHead	{
+	font-weight: 300;
+}
+
+select.form-control  {
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-radius: 0px !important;
+}
+
+h3.stateTitle {
+	text-align: center;
+	color: #222;
+	font-size: 30px;
+	font-weight: 300;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.stateTitle span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.stateTitle:before	{
+  background: #ccc;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 55%;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.stateTitle:before	{
+  left: 0;
+}
+
+#submit	{
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+label.eTitle	{
+	font-weight: 300;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.box	{
+  border-right: 1px solid black;
+}
+
+.fa-check:before	{
+  color: green;
+}
+
+.fa-times:before    {
+  color: red;
+}
+
+p   {
+	font-weight: 100;
+	line-height: 16px;
+	font-size: 14px;
+}
