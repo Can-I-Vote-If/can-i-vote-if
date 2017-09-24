@@ -55,8 +55,7 @@ var States = sequelize.define('states', {
 	}, competence: {
     type: Sequelize.STRING,
     field: 'competence',
-  }
-	other: {
+  },	other: {
 		type: Sequelize.STRING,
 		field: 'other',
 	},
