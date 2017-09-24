@@ -8,6 +8,7 @@ export default class Results extends Component {
 		super(props)
 		this.state = {
 			data: {},
+			canVote: 'Yes',
 		};
 	}
 
@@ -23,36 +24,45 @@ export default class Results extends Component {
 			console.log(resp);
 			this.setState({data: resp.data[0]})
 			console.log(this.state.data)
+			if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
+				this.setState({ canVote: 'Yes' });
+			} else if (this.props.age < 18 || this.props.citizen === 'No' ) {
+				this.setState({ canVote: 'No' });
+			} else if (this.props.crimes === 'Yes' ) {
+				this.setState({ canVote: 'Maybe' });
+			}
+			
 		}).catch(function (error) {
 			console.log(error);
 		});
   }
 	
 	render() {
+		// if (this.state.date.age <= 18 || )
 		const info = this.state.data
 		return (
 			<div>
 				<div className="col-sm-12">
-					<h3 className="stateTitle">Can you vote in {this.props.name}? <span id="answer" className="yes">Yes</span></h3>
+					<h3 className="stateTitle">Can you vote in {this.props.name}? <span id="answer" className={this.state.canVote}>{this.state.canVote}</span></h3>
 				</div>
-				<div className="col-sm-2 col-sm-offset-1">
+				<div className="col-lg-2 col-lg-offset-1">
 					<label className="eTitle">Citizenship <i className="fa fa-check" id="us-citizen" aria-hidden="true"></i></label>
 					<p>{info.citizenship}</p>
 				</div>
-				<div className="col-sm-2">
+				<div className="col-lg-2">
 					<label className="eTitle">Age <i className="fa fa-check" id="age-notice" aria-hidden="true"></i></label>
 					<p>
 					{info.age}</p>
 				</div>
-				<div className="col-sm-2">
+				<div className="col-lg-2">
 					<label className="eTitle">Residency <i className="fa fa-check" id="resident" aria-hidden="true"></i></label>
 					<p>{info.residency}</p>
 				</div>
-				<div className="col-sm-2">
-					<label className="eTitle">Crimes <i className="fa fa-times" id="criminal" aria-hidden="true"></i></label>
+				<div className="col-lg-2">
+					<label className="eTitle">Crimes <i className="fa fa-check" id="criminal" aria-hidden="true"></i></label>
 					<p>{info.criminalHistory}</p>
 				</div>
-				<div className="col-sm-2">
+				<div className="col-lg-2">
 					<label className="eTitle">Other <i className="fa fa-check" id="other" aria-hidden="true"></i></label>
 					<p>{info.other}</p>
 				</div>

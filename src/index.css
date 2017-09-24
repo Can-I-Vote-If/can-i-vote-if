@@ -121,13 +121,17 @@ p   {
     background-color: #F46624;
     padding: 12px 12px;
     font-size: 16px;
-    height: 40px;
 }
 
 .footer > a {
     color: white;
     text-decoration: underline;
     font-weight: 400;
+}
+
+.footer > a:hover {
+		background-color: #F48300;
+		text-transform: uppercase;
 }
 
 #root   {
@@ -141,6 +145,17 @@ span#answer {
     background-color: green;
     padding: 30px 10px;
     height: 90px;
+}
+
+span#answer.Yes {
+    background-color: green;
+}
+span#answer.Maybe {
+		background-color: rgb(244, 223, 66);
+		color: white;
+}
+span#answer.No {
+    background-color: red;
 }
 
 @media screen and (max-width: 480px) {

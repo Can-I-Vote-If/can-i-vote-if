@@ -68,19 +68,15 @@ class App extends Component {
 		console.log(event.target)
 		let crime = event.target.value;
 		console.log(crime)
-		this.setState({ crime: crime });
+		this.setState({ crimes: crime });
 	}
 
 	handleSubmit(event) {
-		let isSubmitted = this.state.submitted
-		this.state.submitted = true
 		event.preventDefault();
-		console.log(this.state)
-		return isSubmitted
+		this.setState({ submitted: true });
 	}
 
 	render() {
-		let isSubmitted=this.state.submitted;
 		return (
 			<form id="form" onSubmit={this.handleSubmit}>
 				<div className="row">
@@ -169,13 +165,13 @@ class App extends Component {
 							<label htmlFor="us-citizen" className="radio-group-label">Have you ever been charged, or convicted of a crime?<span className="required">*</span></label>
 							<br />
 							<div className="btn-group" role="group" aria-label="...">
-								<input type="button" className={(this.state.crime === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCrimeChange} />
+								<input type="button" className={(this.state.crimes === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCrimeChange} />
 								<input type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCrimeChange}/>
 							</div>
 						</div>
 					</div>
 					<div className="col-sm-12 parentButton">
-						<input id="submit" className="btn btn-primary" type="submit" value="Find Out Your Voting Laws"/>	
+						<input id="submit" className="btn btn-primary" type="submit" value="View Your Eligibility"/>	
 					</div>
 				</div>
 
