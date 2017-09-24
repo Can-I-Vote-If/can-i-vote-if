@@ -16,18 +16,19 @@ h1  {
 
 button.isClicked    {
     color: white;
-    background-color: blue;
+    background-color: #F46624;
+    border-color: white;
 }
 
-#us-citizen-0:hover, #us-citizen-0:active, #us-citizen-1:hover, #us-citizen-1:active   {
+#us-citizen-0:hover, #us-citizen-0:active, #us-citizen-0:focus, #us-citizen-1:hover, #us-citizen-1:active, #us-citizen-1:focus   {
     color: white;
-    background-color: blue;
-    opacity: 0.8;
+    background-color: #F46624;
+    outline: none;
 }
 
 .title-text {
     color: #666;
-    font-weight: 100;
+    font-weight: 700;
 /*    letter-spacing: -2px;*/
     font-size: 36px;
     width: 250px;
@@ -48,7 +49,17 @@ button.isClicked    {
 select.form-control  {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border-radius: 0px !important;
+/*    border-radius: 0px !important;*/
+/*    -webkit-appearance:none;*/
+}
+
+input   {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+  border-color: #ccc;
 }
 
 h3.stateTitle {
@@ -59,28 +70,6 @@ h3.stateTitle {
     font-weight: 300;
     z-index: 1;
     overflow: hidden;
-}
-
-.stateTitle span {
-  background: #fff;
-  padding: 0 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.stateTitle:before {
-  background: #ccc;
-  content: "";
-  display: block;
-  height: 1px;
-  position: absolute;
-    top: 55%;
-  width: 60%;
-    margin-left: 20%;
-}
-
-.stateTitle:before {
-  left: 0;
 }
 
 #submit {
@@ -143,4 +132,20 @@ p   {
 
 #root   {
     margin-bottom: 50px;
+}
+
+span#answer {
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    background-color: green;
+    padding: 30px 10px;
+    height: 90px;
+}
+
+@media screen and (max-width: 480px) {
+    span#answer {
+        padding: 0px 16px;
+        margin-top: 5px;
+    }
 }
