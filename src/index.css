@@ -23,7 +23,6 @@ button.isClicked    {
 #us-citizen-0:hover, #us-citizen-0:active, #us-citizen-0:focus, #us-citizen-1:hover, #us-citizen-1:active, #us-citizen-1:focus   {
     color: white;
     background-color: #F46624;
-    opacity: 0.8;
     outline: none;
 }
 
