@@ -1,24 +1,79 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import Results from './components/results';
+import api from './components/api';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 'Please write an essay about your favorite DOM element.'
+			indState: null,
+			citizen: null,
+			age: null,
+			crimes: null,
 		};
 
-		this.handleChange = this.handleChange.bind(this);
+		this.handleStateChange = this.handleStateChange.bind(this);
+		this.handleCitizenChange = this.handleCitizenChange.bind(this);
+		this.handleAgeChange = this.handleAgeChange.bind(this);
+		this.handleCrimeChange = this.handleCrimeChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange(event) {
-		this.setState({ value: event.target.value });
+  componentDidMount() {
+    this.getStates()
+  }
+
+  getStates() {
+    axios.get(api() + '/api/states')
+      .then((response) => {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }
+
+	handleStateChange(event) {
+		console.log(event.target)
+		let indState = event.target.value;
+		console.log(indState)
+		this.setState({ indState: indState });
+	}
+
+	handleCitizenChange(event) {
+		console.log(event.target)
+		let citizen = event.target.value;
+		console.log(citizen)
+		this.setState({ citizen: citizen });
+	}
+
+	handleAgeChange(event) {
+		console.log(event.target)
+		let dob = event.target.value;
+		console.log(dob)
+		var today = new Date();
+		var birthDate = new Date(dob);
+		var age = today.getFullYear() - birthDate.getFullYear();
+		var m = today.getMonth() - birthDate.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		console.log(age)
+		this.setState({ age: age });
+	}
+
+	handleCrimeChange(event) {
+		console.log(event.target)
+		let crime = event.target.value;
+		console.log(crime)
+		this.setState({ crime: crime });
 	}
 
 	handleSubmit(event) {
-		alert('An essay was submitted: ' + this.state.value);
 		event.preventDefault();
+		alert('Here is your info: ' + this.state);
+		console.log(this.state)
 	}
 
 	checkForm() {
@@ -31,10 +86,13 @@ class App extends Component {
 					<div className="col-sm-11 col-sm-offset-1">
 						<h3 className="subHead">Basic Infomation</h3>
 					</div>
-					<div className="col-sm-4 col-sm-offset-1">
+				</div>
+				<div className="row">
+					<div className="col-sm-3 col-sm-offset-1">
 						<div className="select form-group field-where-do-you-live">
 							<label htmlFor="where-do-you-live" className="select-label">Where do you live?<span className="required">*</span></label>
-							<select className="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true" defaultValue="Select State">
+							<select className="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true" defaultValue="Select State" onChange={this.handleStateChange}>
+								<option value="Select State" disabled>Select State</option>
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
@@ -94,15 +152,25 @@ class App extends Component {
 							<label htmlFor="us-citizen" className="radio-group-label">Are you a U.S. Citizen?<span className="required">*</span></label>
 							<br />
 							<div className="btn-group" role="group" aria-label="...">
-								<button type="button" className="btn btn-default" name="us-citizen" id="us-citizen-0" required="required" value="yes" checked="checked">Yes</button>
-								<button type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="no">No</button>
+								<input type="button" className={(this.state.citizen === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCitizenChange} />
+								<input type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCitizenChange}/>
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-4">
+					<div className="col-sm-2">
 						<div className="date form-group field-birthdate">
 							<label htmlFor="birthdate" className="date-label">Birthday<span className="required">*</span></label>
-							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" />
+							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" onChange={this.handleAgeChange}/>
+						</div>
+					</div>
+					<div className="col-sm-4">
+						<div className="radio-group form-group field-us-citizen">
+							<label htmlFor="us-citizen" className="radio-group-label">Have you ever been charged, or convicted of a crime?<span className="required">*</span></label>
+							<br />
+							<div className="btn-group" role="group" aria-label="...">
+								<input type="button" className={(this.state.crime === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCrimeChange} />
+								<input type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCrimeChange}/>
+							</div>
 						</div>
 					</div>
 					<div className="col-sm-12 parentButton">

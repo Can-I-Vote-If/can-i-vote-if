@@ -14,7 +14,7 @@ h1  {
     padding: 10px;
 }
 
-button.isClicked    {
+input[type="button"].isClicked    {
     color: white;
     background-color: blue;
 }

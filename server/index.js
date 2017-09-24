@@ -517,8 +517,9 @@ function startExpress() {
 
   // Get all states
   app.get('/api/states', (req, res) => {
-    // Find all projects
+    // Find all states
 		States.findAll().then((states) => {
+			res.header("Access-Control-Allow-Origin", "*")
 			res.json(states);
     }).catch(err => {
       console.log(err);
@@ -533,6 +534,7 @@ function startExpress() {
 				name: req.params.name,
 			}
 		}).then((currentState) => {
+			res.header("Access-Control-Allow-Origin", "*")
 			res.json(currentState);
 		}).catch(err => {
 			console.log(err);
