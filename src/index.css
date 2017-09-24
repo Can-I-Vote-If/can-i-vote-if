@@ -51,7 +51,7 @@ select.form-control  {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 /*    border-radius: 0px !important;*/
-    -webkit-appearance:none;
+/*    -webkit-appearance:none;*/
 }
 
 input   {
@@ -60,7 +60,7 @@ input   {
 }
 
 .form-control:focus {
-  border-color: darkorange;
+  border-color: #ccc;
 }
 
 h3.stateTitle {
