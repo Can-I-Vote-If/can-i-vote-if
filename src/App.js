@@ -105,7 +105,7 @@ class App extends Component {
 							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" />
 						</div>
 					</div>
-					<div className="col-sm-2 col-sm-offset-5">
+					<div className="col-sm-12 parentButton">
 						<input id="submit" className="btn btn-primary" type="submit" value="Find Out Your Voting Laws"/>	
 					</div>
 				</div>
