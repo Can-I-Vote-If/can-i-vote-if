@@ -46,7 +46,7 @@ export default class Results extends Component {
 					<h3 className="stateTitle">Can you vote in {this.props.name}? <span id="answer" className={this.state.canVote}>{this.state.canVote}</span></h3>
 				</div>
 				<div className="col-lg-2 col-lg-offset-1">
-					<label className="eTitle">Citizenship <i className="fa fa-check" id="us-citizen" aria-hidden="true"></i></label>
+					<label className="eTitle">Citizenship <i className="fa fa-check" id="citizen" aria-hidden="true"></i></label>
 					<p>{info.citizenship}</p>
 				</div>
 				<div className="col-lg-2">

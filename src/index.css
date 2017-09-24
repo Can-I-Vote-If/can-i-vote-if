@@ -123,14 +123,16 @@ p   {
     font-size: 16px;
 }
 
-.footer > a {
+.footer{
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 400;
 }
 
-.footer > a:hover {
+.footer:hover {
 		background-color: #F48300;
+		color: white;
+		text-decoration: none;
 		text-transform: uppercase;
 }
 
