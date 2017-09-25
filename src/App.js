@@ -78,14 +78,15 @@ class App extends Component {
 
 	render() {
 		return (
+			<div>
 			<form id="form" onSubmit={this.handleSubmit}>
 				<div className="row">
-					<div className="col-sm-11 col-sm-offset-1">
+					<div className="col-lg-11 col-lg-offset-1">
 						<h3 className="subHead">Basic Infomation</h3>
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-sm-3 col-sm-offset-1">
+					<div className="col-lg-2 col-lg-offset-1">
 						<div className="select form-group field-where-do-you-live">
 							<label htmlFor="where-do-you-live" className="select-label">Where do you live?<span className="required">*</span></label>
 							<select className="form-control" name="where-do-you-live" id="where-do-you-live" required="required" aria-required="true" defaultValue="Select State" onChange={this.handleStateChange}>
@@ -144,29 +145,29 @@ class App extends Component {
 							</select>
 						</div>
 					</div>
-					<div className="col-sm-2">
+					<div className="col-lg-2">
 						<div className="radio-group form-group field-us-citizen">
 							<label htmlFor="us-citizen" className="radio-group-label">Are you a U.S. Citizen?<span className="required">*</span></label>
 							<br />
 							<div className="btn-group" role="group" aria-label="...">
 								<input type="button" className={(this.state.citizen === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCitizenChange} />
-								<input type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCitizenChange}/>
+								<input type="button" className={(this.state.citizen === 'No') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCitizenChange}/>
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-2">
+					<div className="col-lg-2">
 						<div className="date form-group field-birthdate">
 							<label htmlFor="birthdate" className="date-label">Birthday<span className="required">*</span></label>
 							<input type="date" className="form-control" name="birthdate" id="birthdate" required="required" aria-required="true" onChange={this.handleAgeChange}/>
 						</div>
 					</div>
-					<div className="col-sm-4">
+					<div className="col-lg-5">
 						<div className="radio-group form-group field-us-citizen">
 							<label htmlFor="us-citizen" className="radio-group-label">Have you ever been charged, or convicted of a crime?<span className="required">*</span></label>
 							<br />
 							<div className="btn-group" role="group" aria-label="...">
 								<input type="button" className={(this.state.crimes === 'Yes') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-0" required="required" value="Yes" onClick={this.handleCrimeChange} />
-								<input type="button" className="btn btn-default" name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCrimeChange}/>
+								<input type="button" className={(this.state.crimes === 'No') ? "btn btn-default isClicked" : "btn btn-default"} name="us-citizen" id="us-citizen-1" required="required"	value="No"  onClick={this.handleCrimeChange}/>
 							</div>
 						</div>
 					</div>
@@ -182,6 +183,11 @@ class App extends Component {
 				)}
 
 			</form>
+			<div className="row footer-wrap">
+				<p className="col-sm-12 text-center"><strong>Find out how to register to vote in your state by following the link below.</strong></p>
+				<a href="https://vote.gov/" className="footer col-sm-12 parentButton" target="_blank">Register at vote.gov</a>
+			</div>
+			</div>
 		);
 	}
 }
