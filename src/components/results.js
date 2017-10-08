@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import api from './api';
+import { getResults } from '../actions/results.actions';
 
-export default class Results extends Component {
+class Results extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -12,30 +14,45 @@ export default class Results extends Component {
 		};
 	}
 
-	componentDidMount(props) {
-		console.log(this.props)
+  componentDidMount() {
+    const { getResults } = this.props.actions;
+    console.log(this.props)
 		console.log('name: ' + this.props.name);
-		this.getStates()
-	}
+    
+    getResults().then(resp => {
+      console.log(resp);
+    });
 
-  getStates() {
-    axios.get(api() + '/api/states/' + this.props.name)
-		.then((resp) => {
-			console.log(resp);
-			this.setState({data: resp.data[0]})
-			console.log(this.state.data)
-			if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
-				this.setState({ canVote: 'Yes' });
-			} else if (this.props.age < 18 || this.props.citizen === 'No' ) {
-				this.setState({ canVote: 'No' });
-			} else if (this.props.crimes === 'Yes' ) {
-				this.setState({ canVote: 'Maybe' });
-			}
-			
-		}).catch(function (error) {
-			console.log(error);
-		});
+    // this.getStates()
   }
+
+  // getStates() {
+  //   axios.get(api() + '/api/states/Minnesota')
+  //     .then((response) => {
+  //       console.log(response);
+  //     }).catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
+
+  // getStates() {
+  //   axios.get(api() + '/api/states/' + this.props.name)
+	// 	.then((resp) => {
+	// 		console.log(resp);
+	// 		this.setState({data: resp.data[0]})
+	// 		console.log(this.state.data)
+	// 		if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
+	// 			this.setState({ canVote: 'Yes' });
+	// 		} else if (this.props.age < 18 || this.props.citizen === 'No' ) {
+	// 			this.setState({ canVote: 'No' });
+	// 		} else if (this.props.crimes === 'Yes' ) {
+	// 			this.setState({ canVote: 'Maybe' });
+	// 		}
+			
+	// 	}).catch(function (error) {
+	// 		console.log(error);
+	// 	});
+  // }
 	
 	render() {
 		// if (this.state.canVote === 'Maybe' && )
@@ -70,3 +87,27 @@ export default class Results extends Component {
 		);
 	}
 }
+
+Results.propTypes = {
+  actions: PropTypes.object.isRequired,
+  results: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => {
+  return {
+    results: state.results,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(
+      {
+        getResults
+      },
+      dispatch
+    ),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results);

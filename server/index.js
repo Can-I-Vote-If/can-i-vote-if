@@ -70,10 +70,10 @@ const States = sequelize.define('states', {
 // so that development isn't a graveyard. In production we
 // probably don't want to delete the entire database :)
 //
-if(process.env.NODE_ENV !== 'production') {
+// if(process.env.NODE_ENV !== 'production') {
   sequelize.sync({force: true}).then(() => {
 
-    // Some sample projects
+    // Our states
     var states = {
 			data: [ 
       {
@@ -496,9 +496,9 @@ if(process.env.NODE_ENV !== 'production') {
 
   });
 
-} else {
-  startExpress();
-}
+// } else {
+//   startExpress();
+// }
 
 function startExpress() {
 

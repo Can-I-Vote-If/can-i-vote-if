@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Results from './components/results';
-import api from './components/api';
 
 class App extends Component {
 	constructor(props) {
@@ -21,19 +19,6 @@ class App extends Component {
 		this.handleCrimeChange = this.handleCrimeChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-
-  componentDidMount() {
-    this.getStates()
-  }
-
-  getStates() {
-    axios.get(api() + '/api/states')
-      .then((response) => {
-        console.log(response);
-      }).catch(function (error) {
-        console.log(error);
-      });
-  }
 
 	handleStateChange(event) {
 		console.log(event.target)
@@ -185,7 +170,7 @@ class App extends Component {
 			</form>
 			<div className="row footer-wrap">
 				<p className="col-sm-12 text-center"><strong>Find out how to register to vote in your state by following the link below.</strong></p>
-				<a href="https://vote.gov/" className="footer col-sm-12 parentButton" target="_blank">Register at vote.gov</a>
+				<a href="https://vote.gov/" className="footer col-sm-12 parentButton" target="_blank" rel="noopener noreferrer">Register at vote.gov</a>
 			</div>
 			</div>
 		);
