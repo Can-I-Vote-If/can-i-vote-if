@@ -172,7 +172,7 @@ class App extends Component {
 						</div>
 					</div>
 					<div className="col-sm-12 parentButton">
-						<input id="submit" className="btn btn-primary" type="submit" value="View Your Eligibility"/>	
+						<input id="submit" className="btn btn-primary" type="submit" value="View Your Eligibility"  />
 					</div>
 				</div>
 

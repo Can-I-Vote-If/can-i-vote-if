@@ -20,3 +20,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#Webstorm IDE
+.idea/can-i-vote-if.iml
+.idea/codeStyleSettings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml

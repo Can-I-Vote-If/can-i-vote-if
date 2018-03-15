@@ -8,15 +8,33 @@ export default class Results extends Component {
 		super(props)
 		this.state = {
 			data: {},
-			canVote: 'Yes',
+			canVote: null,
 		};
 	}
 
 	componentDidMount(props) {
 		console.log(this.props)
 		console.log('name: ' + this.props.name);
-		this.getStates()
+		this.yesNoMaybe();
 	}
+
+
+     //Method to determine if you can vote
+
+    yesNoMaybe() {
+            console.log("yesNoMaybe")
+            if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
+                console.log("yesNoMaybe.yes")
+                this.setState({canVote: 'Yes'});
+            } else if (this.props.age < 18 || this.props.citizen === 'No') {
+                console.log("yesNoMaybe.no")
+                this.setState({canVote: 'No'});
+            } else if (this.props.crimes === 'Yes') {
+                console.log("yesNoMaybe.Maybe")
+                this.setState({canVote: 'Maybe'});
+            }
+    }
+
 
   getStates() {
     axios.get(api() + '/api/states/' + this.props.name)
@@ -36,15 +54,17 @@ export default class Results extends Component {
 			console.log(error);
 		});
   }
-	
+
 	render() {
 		// if (this.state.canVote === 'Maybe' && )
 		const info = this.state.data
 		return (
 			<div className="row results">
 				<div className="col-sm-12">
+
 					<h3 className="stateTitle">Can you vote in {this.props.name}? <span id="answer" className={this.state.canVote}>{this.state.canVote}</span></h3>
 				</div>
+
 				<div className="col-lg-2 col-lg-offset-1">
 					<label className="eTitle">Citizenship <i className={(this.props.citizen === 'Yes') ? "fa fa-check" : "fa fa-times"} id="citizen" aria-hidden="true"></i></label>
 					<p>{info.citizenship}</p>
