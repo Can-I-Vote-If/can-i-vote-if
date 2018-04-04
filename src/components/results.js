@@ -68,11 +68,20 @@ export default class Results extends Component {
 				<div className="col-lg-2 col-lg-offset-1">
 					<label className="eTitle">Citizenship <i className={(this.props.citizen === 'Yes') ? "fa fa-check" : "fa fa-times"} id="citizen" aria-hidden="true"></i></label>
 					<p>{info.citizenship}</p>
+                    <p>
+                        {(this.props.citizen === 'No') ? ( <a href="https://www.usa.gov/register-to-vote#item-212447//"> Who Can Vote in the US?</a>) : null}
+                    </p>
+                    <p>
+                        {(this.props.citizen === 'No') ? ( <a href=" https://www.usa.gov/become-us-citizen//"> How To Become a U.S Citizen </a>) : null}
+                    </p>
 				</div>
 				<div className="col-lg-2">
 					<label className="eTitle">Age <i className={(this.props.age >= 18) ? "fa fa-check" : "fa fa-times"} id="age-notice" aria-hidden="true"></i></label>
 					<p>
 					{info.age}</p>
+                    <p>
+                        {(this.props.age < 18) ? ( <a href="https://www.usa.gov/register-to-vote#item-212447//"> Who Can Vote in the US?</a>) : null}
+                    </p>
 				</div>
 				<div className="col-lg-2">
 					<label className="eTitle">Residency <i className="fa fa-check" id="resident" aria-hidden="true"></i></label>
@@ -80,6 +89,13 @@ export default class Results extends Component {
 				</div>
 				<div className="col-lg-2">
 					<label className="eTitle">Crimes <i className={(this.props.crimes === 'Yes') ? "fa fa-exclamation" : "fa fa-check"} id="criminal" aria-hidden="true"></i></label>
+					<p>
+                        {(this.props.crimes === 'Yes') ? ( <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/"> Learn About Voting as an Ex-offender </a>) : null}
+
+                    </p>
+                    <p>
+                        {(this.props.crimes === 'Yes') ? ( <a href="http://mylegalaid.org//"> Learn About Legal Options as an Ex-offender </a>) : null}
+					</p>
 					<p>{info.criminalHistory}</p>
 				</div>
 				<div className="col-lg-2">
