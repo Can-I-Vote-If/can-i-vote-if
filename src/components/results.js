@@ -13,24 +13,22 @@ export default class Results extends Component {
 	}
 
 	componentDidMount(props) {
-		console.log(this.props)
-		console.log('name: ' + this.props.name);
-		this.yesNoMaybe();
+				this.user_can_vote();
 	}
 
 
      //Method to determine if you can vote
 
-    yesNoMaybe() {
-            console.log("yesNoMaybe")
+    user_can_vote() {
+
             if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
-                console.log("yesNoMaybe.yes")
+
                 this.setState({canVote: 'Yes'});
             } else if (this.props.age < 18 || this.props.citizen === 'No') {
-                console.log("yesNoMaybe.no")
+
                 this.setState({canVote: 'No'});
             } else if (this.props.crimes === 'Yes') {
-                console.log("yesNoMaybe.Maybe")
+
                 this.setState({canVote: 'Maybe'});
             }
     }
@@ -39,9 +37,8 @@ export default class Results extends Component {
   getStates() {
     axios.get(api() + '/api/states/' + this.props.name)
 		.then((resp) => {
-			console.log(resp);
 			this.setState({data: resp.data[0]})
-			console.log(this.state.data)
+
 			if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
 				this.setState({ canVote: 'Yes' });
 			} else if (this.props.age < 18 || this.props.citizen === 'No' ) {
@@ -51,7 +48,6 @@ export default class Results extends Component {
 			}
 			
 		}).catch(function (error) {
-			console.log(error);
 		});
   }
 
