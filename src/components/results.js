@@ -13,13 +13,13 @@ export default class Results extends Component {
     }
 
     componentDidMount(props) {
-        this.user_can_vote();
+        this.userCanVote();
     }
 
 
     //Method to determine if you can vote
 
-    user_can_vote() {
+    userCanVote() {
 
         if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
 
