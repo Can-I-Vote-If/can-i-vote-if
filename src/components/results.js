@@ -38,6 +38,22 @@ export default class Results extends Component {
         axios.get(api() + '/api/states/' + this.props.name)
             .then((resp) => {
                 this.setState({data: resp.data[0]})
+
+                if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
+                    this.setState({canVote: 'Yes'});
+                } else if (this.props.age < 18 || this.props.citizen === 'No') {
+                    this.setState({canVote: 'No'});
+                } else if (this.props.crimes === 'Yes') {
+                    this.setState({canVote: 'Maybe'});
+                }
+            }).catch(function (error) {
+        });
+    }
+
+    getStates() {
+        axios.get(api() + '/api/states/' + this.props.name)
+            .then((resp) => {
+                this.setState({data: resp.data[0]})
                 if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
                     this.setState({canVote: 'Yes'});
                 } else if (this.props.age < 18 || this.props.citizen === 'No') {
