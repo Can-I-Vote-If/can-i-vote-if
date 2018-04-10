@@ -35,32 +35,32 @@ if(process.env.NODE_ENV == 'production') {
 const States = sequelize.define('states', {
   name: {
     type: Sequelize.STRING,
-		field: 'name'
+    field: 'name'
   },
   age: {
-		type: Sequelize.STRING(1000),
-		field: 'age'
+    type: Sequelize.STRING(1000),
+    field: 'age'
   },
   citizenship: {
-		type: Sequelize.STRING(1000),
-		field: 'citizenship',
-	},
-	residency: {
-		type: Sequelize.STRING(1000),
-		field: 'residency',
-	},
-	criminalHistory: {
-		type: Sequelize.STRING(1000),
-		field: 'criminalHistory',
-	},
-	competence: {
-		type: Sequelize.STRING(1000),
-		field: 'competence',
-	},
-	other: {
-		type: Sequelize.STRING(1000),
-		field: 'other',
-	},
+    type: Sequelize.STRING(1000),
+    field: 'citizenship',
+  },
+  residency: {
+    type: Sequelize.STRING(1000),
+    field: 'residency',
+  },
+  criminalHistory: {
+    type: Sequelize.STRING(1000),
+    field: 'criminalHistory',
+  },
+  competence: {
+    type: Sequelize.STRING(1000),
+    field: 'competence',
+  },
+  other: {
+    type: Sequelize.STRING(1000),
+    field: 'other',
+  },
 }, {
   freezeTableName: true
 });
@@ -75,7 +75,7 @@ if(process.env.NODE_ENV !== 'production') {
 
     // Some sample projects
     var states = {
-			data: [ 
+      data: [ 
       {
         name: 'Alabama',
         age: 'You must be 18 years old before any election',
@@ -518,28 +518,28 @@ function startExpress() {
   // Get all states
   app.get('/api/states', (req, res) => {
     // Find all states
-		States.findAll().then((states) => {
-			res.header("Access-Control-Allow-Origin", "*")
-			res.json(states);
+    States.findAll().then((states) => {
+      res.header("Access-Control-Allow-Origin", "*")
+      res.json(states);
     }).catch(err => {
       console.log(err);
     })
-	});
-	
-	// Get all states
-	app.get('/api/states/:name', (req, res) => {
-		// Find all States
-		States.findAll({
-			where: {
-				name: req.params.name,
-			}
-		}).then((currentState) => {
-			res.header("Access-Control-Allow-Origin", "*")
-			res.json(currentState);
-		}).catch(err => {
-			console.log(err);
-		})
-	});
+  });
+  
+  // Get all states
+  app.get('/api/states/:name', (req, res) => {
+    // Find all States
+    States.findAll({
+      where: {
+        name: req.params.name,
+      }
+    }).then((currentState) => {
+      res.header("Access-Control-Allow-Origin", "*")
+      res.json(currentState);
+    }).catch(err => {
+      console.log(err);
+    })
+  });
 
   // Determine which port to listen on
   var port = process.env.PORT ? process.env.PORT : 3001
