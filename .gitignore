@@ -27,3 +27,4 @@ yarn-error.log*
 .idea/misc.xml
 .idea/modules.xml
 .idea/workspace.xml
+.idea/vsc.xml
