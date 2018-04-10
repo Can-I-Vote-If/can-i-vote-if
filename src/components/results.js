@@ -46,21 +46,6 @@ export default class Results extends Component {
                 } else if (this.props.crimes === 'Yes') {
                     this.setState({canVote: 'Maybe'});
                 }
-            }).catch(function (error) {
-        });
-    }
-
-    getStates() {
-        axios.get(api() + '/api/states/' + this.props.name)
-            .then((resp) => {
-                this.setState({data: resp.data[0]})
-                if (this.props.age >= 18 && this.props.crimes === 'No' && this.props.citizen === 'Yes') {
-                    this.setState({canVote: 'Yes'});
-                } else if (this.props.age < 18 || this.props.citizen === 'No') {
-                    this.setState({canVote: 'No'});
-                } else if (this.props.crimes === 'Yes') {
-                    this.setState({canVote: 'Maybe'});
-                }
 
             }).catch(function (error) {
         });
@@ -98,7 +83,8 @@ export default class Results extends Component {
                     <label className="eTitle">Age <i className={(this.props.age >= 18) ? "fa fa-check" : "fa fa-times"}
                                                      id="age-notice" aria-hidden="true"></i></label>
                     <p>
-                        {info.age}</p>
+                        {info.age}
+                    </p>
                     <p>
                         {(this.props.age < 18) ? (
                             <a href="https://www.usa.gov/register-to-vote#item-212447//"> Who Can Vote in the
