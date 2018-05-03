@@ -70,12 +70,12 @@ export default class Results extends Component {
                     <p>{info.citizenship}</p>
                     <p>
                         {(this.props.citizen === 'No') ? (
-                            <a href="https://www.usa.gov/register-to-vote#item-212447//"> Who Can Vote in the
+                            <a href="https://www.usa.gov/register-to-vote#item-212447//" target="_blank"> Who Can Vote in the
                                 US?</a>) : null}
                     </p>
                     <p>
                         {(this.props.citizen === 'No') ? (
-                            <a href=" https://www.usa.gov/become-us-citizen//"> How To Become a U.S
+                            <a href=" https://www.usa.gov/become-us-citizen//" target="_blank"> How To Become a U.S
                                 Citizen </a>) : null}
                     </p>
                 </div>
@@ -87,7 +87,7 @@ export default class Results extends Component {
                     </p>
                     <p>
                         {(this.props.age < 18) ? (
-                            <a href="https://www.usa.gov/register-to-vote#item-212447//"> Who Can Vote in the
+                            <a href="https://www.usa.gov/register-to-vote#item-212447//" target="_blank"> Who Can Vote in the
                                 US?</a>) : null}
                     </p>
                 </div>
@@ -101,13 +101,13 @@ export default class Results extends Component {
                         aria-hidden="true"></i></label>
                     <p>
                         {(this.props.crimes === 'Yes') ? (
-                            <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/">
+                            <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/" target="_blank">
                                 Learn About Voting as an Ex-offender </a>) : null}
 
                     </p>
                     <p>
                         {(this.props.crimes === 'Yes') ? (
-                            <a href="http://mylegalaid.org//"> Learn About Legal Options as an Ex-offender </a>) : null}
+                            <a href="http://mylegalaid.org//" target="_blank"> Learn About Legal Options as an Ex-offender </a>) : null}
                     </p>
                     <p>{info.criminalHistory}</p>
                 </div>

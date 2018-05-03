@@ -8,24 +8,52 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			indState: null,
+			indState: 'Obinna',
 			citizen: null,
 			age: null,
 			crimes: null,
 			submitted: false,
+			electionData: [],
+			address: ''
 		};
 
 		this.handleStateChange = this.handleStateChange.bind(this);
 		this.handleCitizenChange = this.handleCitizenChange.bind(this);
 		this.handleAgeChange = this.handleAgeChange.bind(this);
 		this.handleCrimeChange = this.handleCrimeChange.bind(this);
+		this.handleaddressChange = this.handleaddressChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
   componentDidMount() {
     this.getStates()
+		this.getelectionsfromAPI()
+		.then(() => console.log(this.state));
   }
 
+getelectionsfromAPI() {
+	  return fetch('https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCuzom1EHkv0O_evm3DSt-2GM-zJ-k6eso')
+	    .then((response) => response.json())
+	    .then((responseJson) => {
+	      console.log(responseJson.elections);
+				this.setState({electionData: responseJson.elections})
+	    })
+	    .catch((error) => {
+	      console.error(error);
+	    });
+	}
+
+	// getvoterinfofromAPI() {
+	// 	  return fetch('https://www.googleapis.com/civicinfo/v2/voterinfo?address={this.state.address}&electionId=2000&officialOnly=false&returnAllAvailableData=true&key=AIzaSyCuzom1EHkv0O_evm3DSt-2GM-zJ-k6eso')
+	// 	    .then((response) => response.json())
+	// 	    .then((responseJson) => {
+	// 	      console.log(responseJson.elections);
+	// 				this.setState({electionData: responseJson.elections})
+	// 	    })
+	// 	    .catch((error) => {
+	// 	      console.error(error);
+	// 	    });
+	// 	}
   getStates() {
     axios.get(api() + '/api/states')
       .then((response) => {
@@ -71,14 +99,39 @@ class App extends Component {
 		this.setState({ crimes: crime });
 	}
 
+	handleaddressChange(event) {
+		console.log(event.target)
+		let address_state = event.target.value;
+		console.log(address_state)
+		this.setState({address: address_state});
+	}
+
 	handleSubmit(event) {
 		event.preventDefault();
 		this.setState({ submitted: true });
 	}
 
+
 	render() {
+		const renderDay = this.state.electionData.map(function(election) {
+			return <li key={election.id}>{election.name} - {election.electionDay}</li>
+		});
 		return (
 			<div>
+				<div>
+					<ul>
+						{renderDay}
+					</ul>
+				</div>
+				<div>
+					<form onSubmit={this.handleSubmit}>
+        <label>
+          Please type in your State:
+          <input type="text" onChange={this.handleaddressChange} value={this.state.address} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+				</div>
 			<form id="form" onSubmit={this.handleSubmit}>
 				<div className="row">
 					<div className="col-lg-11 col-lg-offset-1">
