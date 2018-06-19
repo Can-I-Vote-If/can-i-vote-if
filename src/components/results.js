@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-import api from '../utils/api';
 import stateData from '../utils/states.json';
 
 export default class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {},
+      data: stateData,
       canVote: null
     };
   }
 
   componentDidMount(props) {
     this.userCanVote();
-    console.log(this.props);
+    console.log(this.state);
   }
 
   userCanVote() {
@@ -30,27 +28,6 @@ export default class Results extends Component {
     } else if (this.props.crimes === 'Yes') {
       this.setState({ canVote: 'Maybe' });
     }
-  }
-
-  getStates() {
-    axios
-      .get(api() + '/api/states/' + this.props.name)
-      .then(resp => {
-        this.setState({ data: resp.data[0] });
-
-        if (
-          this.props.age >= 18 &&
-          this.props.crimes === 'No' &&
-          this.props.citizen === 'Yes'
-        ) {
-          this.setState({ canVote: 'Yes' });
-        } else if (this.props.age < 18 || this.props.citizen === 'No') {
-          this.setState({ canVote: 'No' });
-        } else if (this.props.crimes === 'Yes') {
-          this.setState({ canVote: 'Maybe' });
-        }
-      })
-      .catch(function(error) {});
   }
 
   render() {
@@ -81,7 +58,6 @@ export default class Results extends Component {
           <p>
             {this.props.citizen === 'No' ? (
               <a href="https://www.usa.gov/register-to-vote#item-212447//">
-                {' '}
                 Who Can Vote in the US?
               </a>
             ) : null}
@@ -89,8 +65,7 @@ export default class Results extends Component {
           <p>
             {this.props.citizen === 'No' ? (
               <a href=" https://www.usa.gov/become-us-citizen//">
-                {' '}
-                How To Become a U.S Citizen{' '}
+                How To Become a U.S Citizen
               </a>
             ) : null}
           </p>
@@ -108,7 +83,6 @@ export default class Results extends Component {
           <p>
             {this.props.age < 18 ? (
               <a href="https://www.usa.gov/register-to-vote#item-212447//">
-                {' '}
                 Who Can Vote in the US?
               </a>
             ) : null}
@@ -137,15 +111,14 @@ export default class Results extends Component {
           <p>
             {this.props.crimes === 'Yes' ? (
               <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/">
-                Learn About Voting as an Ex-offender{' '}
+                Learn About Voting as an Ex-offender
               </a>
             ) : null}
           </p>
           <p>
             {this.props.crimes === 'Yes' ? (
               <a href="http://mylegalaid.org//">
-                {' '}
-                Learn About Legal Options as an Ex-offender{' '}
+                Learn About Legal Options as an Ex-offender
               </a>
             ) : null}
           </p>
