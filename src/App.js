@@ -2,47 +2,23 @@ import React, { Component } from 'react';
 
 import Form from './components/Form';
 import Footer from './containers/Footer';
+import { getElections, getVoterInfo } from './utils/handlers';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      address: 'manhattan, new york city, ny',
       electionData: [],
-      address: ''
+      voterInfo: []
     };
   }
 
   componentDidMount() {
-    this.getelectionsfromAPI().then(() => console.log(this.state));
+    getElections().then((data) => this.setState({ electionData: data.elections }));
+    getVoterInfo(this.state.address).then((data) => this.setState({ voterInfo: data }));
   }
 
-  getelectionsfromAPI() {
-    return fetch(
-      'https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCuzom1EHkv0O_evm3DSt-2GM-zJ-k6eso'
-    )
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson.elections);
-        this.setState({ electionData: responseJson.elections });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
-  getvoterinfofromAPI() {
-    return fetch(
-      'https://www.googleapis.com/civicinfo/v2/voterinfo?address={this.state.address}&electionId=2000&officialOnly=false&returnAllAvailableData=true&key=AIzaSyCuzom1EHkv0O_evm3DSt-2GM-zJ-k6eso'
-    )
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson.elections);
-        this.setState({ electionData: responseJson.elections });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
   render() {
     const renderDay = this.state.electionData.map(function(election) {
       return (
@@ -51,6 +27,7 @@ class App extends Component {
         </li>
       );
     });
+    console.log(this.state);
     return (
       <div>
         <div>

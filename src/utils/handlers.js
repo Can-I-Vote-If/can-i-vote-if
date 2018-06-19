@@ -1,3 +1,28 @@
+import { get } from './env';
+
+export function getElections() {
+  return fetch(
+    'https://www.googleapis.com/civicinfo/v2/elections?key=' + get('apiKey')
+  )
+    .then(response => response.json())
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+export function getVoterInfo(address) {
+  return fetch(
+    'https://www.googleapis.com/civicinfo/v2/voterinfo?address=' +
+      { address } +
+      '&electionId=2000&officialOnly=false&returnAllAvailableData=true&key=' +
+      get('apiKey')
+  )
+    .then(response => response.json())
+    .catch(error => {
+      console.error(error);
+    });
+}
+
 export function handleStateChange(event) {
   let indState = event.target.value;
   this.setState({ indState: indState });
