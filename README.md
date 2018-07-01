@@ -1,17 +1,25 @@
-# Can I Vote?  
+# Can I Vote If?
+
+## Intro
+> Can I Vote If? (CIVI) was born about of the [CodeSwitch](http://www.codeswitch.mn/) hackathon in Sept 2017. Created by [Jenessa White](github.com/jenessawhite) after hearing [Jason Sole](https://twitter.com/iamjasonsole) from the panel on Saturday morning talk about how he had just regained his right to vote. 
+
+>Voting laws in the United States vary based on mainly 4 areas:
+> - Citizenship
+> - Age
+> - Residency
+> - Criminal History
+
+> This can make it very confusing and difficult for people to vote in this country and ultimately lead to stories like [this](https://www.npr.org/sections/thetwo-way/2018/03/31/598458914/texas-woman-sentenced-to-5-years-for-illegal-voting).
 
 
-### Prerequisites
+## Getting Started
+```
+$ git clone git@github.com:Can-I-Vote-If/can-i-vote-if.git
+$ cd can-i-vote-if
+$ yarn
+$ yarn start
+```
 
-* Node.js
-* Postgres must [be installed](https://postgresapp.com/).
 
-### Getting started
-
-1. Clone the app git repo :)
-2. Run `yarn`
-3. cd to the server directory `cd server`
-4. Copy `.env.example` to `.env`.
-5. Edit `.env` and add your DATABASE_URL in the form `postgres://localhost:5432/rules` where `rules` is your postgres database name (typically your computer username).
-6. cd back to app level `cd ..`
-7. Run `yarn start`
+## License
+MIT Licensed. Copyright (c) Jenessa White 2018.
