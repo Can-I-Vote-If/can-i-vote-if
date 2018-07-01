@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
-import stateData from '../utils/states.json';
+import { getStates } from '../utils/handlers';
+// import stateData from '../utils/states.json';
 
 export default class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: stateData,
+      data: {},
       canVote: null
     };
   }
 
-  componentDidMount(props) {
+  componentWillMount() {
     this.userCanVote();
-    console.log(this.state);
+    this.setState({ data: getStates(this.props.state) });
   }
 
   userCanVote() {
@@ -32,11 +33,13 @@ export default class Results extends Component {
 
   render() {
     const info = this.state.data;
+    const { age, citizen, crimes, state } = this.props;
+
     return (
       <div className="row results">
         <div className="col-sm-12">
           <h3 className="stateTitle">
-            Can you vote in {this.props.name}?{' '}
+            Can you vote in {state}?{' '}
             <span id="answer" className={this.state.canVote}>
               {this.state.canVote}
             </span>
@@ -47,47 +50,50 @@ export default class Results extends Component {
           <label className="eTitle">
             Citizenship{' '}
             <i
-              className={
-                this.props.citizen === 'Yes' ? 'fa fa-check' : 'fa fa-times'
-              }
+              className={citizen === 'Yes' ? 'fa fa-check' : 'fa fa-times'}
               id="citizen"
               aria-hidden="true"
             />
           </label>
-          <p>{info.citizenship}</p>
-          <p>
-            {this.props.citizen === 'No' ? (
-              <a href="https://www.usa.gov/register-to-vote#item-212447//">
-                Who Can Vote in the US?
-              </a>
+
+          <div className="voter-info">
+            <p>{info.citizenship}</p>
+            {citizen === 'No' ? (
+              <p>
+                <a href="https://www.usa.gov/register-to-vote/#item-212447" target="_blank" rel="noopener noreferrer">
+                  Who Can Vote in the US?
+                </a>
+                <br/>
+                <a href=" https://www.usa.gov/become-us-citizen/" target="_blank" rel="noopener noreferrer">
+                  How To Become a U.S Citizen
+                </a>
+              </p>
             ) : null}
-          </p>
-          <p>
-            {this.props.citizen === 'No' ? (
-              <a href=" https://www.usa.gov/become-us-citizen//">
-                How To Become a U.S Citizen
-              </a>
-            ) : null}
-          </p>
+          </div>
         </div>
+
         <div className="col-lg-2">
           <label className="eTitle">
             Age{' '}
             <i
-              className={this.props.age >= 18 ? 'fa fa-check' : 'fa fa-times'}
+              className={age >= 18 ? 'fa fa-check' : 'fa fa-times'}
               id="age-notice"
               aria-hidden="true"
             />
           </label>
-          <p>{info.age}</p>
-          <p>
-            {this.props.age < 18 ? (
-              <a href="https://www.usa.gov/register-to-vote#item-212447//">
-                Who Can Vote in the US?
-              </a>
+
+          <div className="voter-info">
+            <p>{info.age}</p>
+            {age < 18 ? (
+              <p>
+                <a href="https://www.usa.gov/register-to-vote#item-212447/" target="_blank" rel="noopener noreferrer">
+                  Who Can Vote in the US?
+                </a>
+              </p>
             ) : null}
-          </p>
+          </div>
         </div>
+
         <div className="col-lg-2">
           <label className="eTitle">
             Residency{' '}
@@ -95,35 +101,33 @@ export default class Results extends Component {
           </label>
           <p>{info.residency}</p>
         </div>
+
         <div className="col-lg-2">
           <label className="eTitle">
             Crimes{' '}
             <i
-              className={
-                this.props.crimes === 'Yes'
-                  ? 'fa fa-exclamation'
-                  : 'fa fa-check'
-              }
+              className={crimes === 'Yes' ? 'fa fa-exclamation' : 'fa fa-check'}
               id="criminal"
               aria-hidden="true"
             />
           </label>
-          <p>
-            {this.props.crimes === 'Yes' ? (
-              <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/">
-                Learn About Voting as an Ex-offender
-              </a>
+
+          <div className="voter-info">
+            <p>{info.criminalHistory}</p>
+            {crimes === 'Yes' ? (
+              <p>
+                <a href="http://www.nonprofitvote.org/voting-in-your-state/special-circumstances/voting-as-an-ex-offender/" target="_blank" rel="noopener noreferrer">
+                  Learn About Voting as an Ex-offender
+                </a>
+                <br/>
+                <a href="http://mylegalaid.org/" target="_blank" rel="noopener noreferrer">
+                  Learn About Legal Options as an Ex-offender
+                </a>
+              </p>
             ) : null}
-          </p>
-          <p>
-            {this.props.crimes === 'Yes' ? (
-              <a href="http://mylegalaid.org//">
-                Learn About Legal Options as an Ex-offender
-              </a>
-            ) : null}
-          </p>
-          <p>{info.criminalHistory}</p>
+          </div>
         </div>
+
         <div className="col-lg-2">
           <label className="eTitle">
             Other <i className="fa fa-check" id="other" aria-hidden="true" />

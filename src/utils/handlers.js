@@ -1,26 +1,8 @@
-import { get } from './env';
+import find from 'lodash.find';
+import stateData from '../utils/states.json';
 
-export function getElections() {
-  return fetch(
-    'https://www.googleapis.com/civicinfo/v2/elections?key=' + get('apiKey')
-  )
-    .then(response => response.json())
-    .catch(error => {
-      console.error(error);
-    });
-}
-
-export function getVoterInfo(address) {
-  return fetch(
-    'https://www.googleapis.com/civicinfo/v2/voterinfo?address=' +
-      { address } +
-      '&electionId=2000&officialOnly=false&returnAllAvailableData=true&key=' +
-      get('apiKey')
-  )
-    .then(response => response.json())
-    .catch(error => {
-      console.error(error);
-    });
+export function getStates(state) {
+  return find(stateData, {name: state});
 }
 
 export function handleStateChange(event) {
@@ -50,7 +32,6 @@ export function handleChange(event, opt) {
   let value = event.target.value;
   let obj = {};
   obj[opt] = value;
-  console.log(obj);
 
   this.setState(obj);
 }
