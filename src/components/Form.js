@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import States from './States';
 import Results from './Results';
-import api from '../utils/api';
-// import { handleChange } from '../utils/handlers';
 
 class Form extends Component {
   constructor(props) {
@@ -20,21 +17,6 @@ class Form extends Component {
     this.handleAgeChange = this.handleAgeChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    this.getStates();
-  }
-
-  getStates() {
-    axios
-      .get(api() + '/api/states')
-      .then(response => {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
   }
 
   handleAgeChange(event) {
@@ -58,7 +40,6 @@ class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({ submitted: true });
-    console.log(this.state);
   }
 
   render() {
@@ -179,10 +160,10 @@ class Form extends Component {
 
         {this.state.submitted ? (
           <Results
-            name={this.state.indState}
             age={this.state.age}
             citizen={this.state.citizen}
             crimes={this.state.crimes}
+            state={this.state.indState}
           />
         ) : null}
       </form>
