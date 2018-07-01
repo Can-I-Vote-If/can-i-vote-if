@@ -1,3 +1,10 @@
+import find from 'lodash.find';
+import stateData from '../utils/states.json';
+
+export function getStates(state) {
+  return find(stateData, {name: state});
+}
+
 export function handleStateChange(event) {
   let indState = event.target.value;
   this.setState({ indState: indState });
@@ -25,7 +32,6 @@ export function handleChange(event, opt) {
   let value = event.target.value;
   let obj = {};
   obj[opt] = value;
-  console.log(obj);
 
   this.setState(obj);
 }
