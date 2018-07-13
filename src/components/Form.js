@@ -47,7 +47,7 @@ class Form extends Component {
       <form id="form" onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-lg-11 col-lg-offset-1">
-            <h3 className="subHead">Basic Infomation</h3>
+            <h3 className="subHead">Basic Information</h3>
           </div>
         </div>
         <div className="row">
