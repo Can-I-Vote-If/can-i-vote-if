@@ -3,63 +3,64 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:700');
 
 html {
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.3px;
 }
 
 h1  {
-	text-align: center;
-	font-family: 'Raleway', sans-serif;
-	color: white !important;
-	background-color: #F46624;
-	padding: 10px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: white !important;
+  background-color: #F46624;
+  padding: 10px;
 }
 
 p {
-	margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 input[type="button"].isClicked {
-	color: white;
-	background-color: #F46624;
-	border-color: white;
+  color: white;
+  background-color: #F46624;
+  border-color: white;
 }
 
 #us-citizen-0:hover, #us-citizen-0:active, #us-citizen-0:focus, #us-citizen-1:hover, #us-citizen-1:active, #us-citizen-1:focus   {
-	color: white;
-	background-color: #F46624;
-	outline: none;
+  color: white;
+  background-color: #F46624;
+  outline: none;
 }
 
 .title-text {
-	color: #666;
-	font-weight: 700;
+  color: #666;
+  font-weight: 700;
 /*    letter-spacing: -2px;*/
-	font-size: 36px;
-	width: 250px;
-	margin: 0 auto;
-	padding: 10px 0px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+  font-size: 36px;
+  width: 250px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .chatter    {  
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .subHead    {
-	font-weight: 300;
+  font-weight: 300;
 }
 
 select.form-control  {
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 /*    border-radius: 0px !important;*/
 /*    -webkit-appearance:none;*/
 }
 
 input   {
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .form-control:focus {
@@ -67,102 +68,102 @@ input   {
 }
 
 h3.stateTitle {
-	text-align: center;
-	color: #222;
-	margin-top: 13px;
-	font-size: 24px;
-	font-weight: 300;
-	z-index: 1;
-	overflow: hidden;
+  text-align: center;
+  color: #222;
+  margin-top: 13px;
+  font-size: 24px;
+  font-weight: 300;
+  z-index: 1;
+  overflow: hidden;
 }
 
 #submit {
-	margin-top: 10px;
-	margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 label.eTitle    {
-	font-weight: 400;
-	font-size: 20px;
-	margin-top: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .box    {
-	border-right: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .fa-check:before   {
-	color: green;
+  color: green;
 }
 
 .fa-times:before    {
-	color: red;
+  color: red;
 }
 
 .fa-exclamation:before    {
-	color: rgb(244, 223, 66);
+  color: rgb(244, 223, 66);
 }
 
 p   {
-	font-weight: 300;
-	line-height: 18px;
-	font-size: 16px;
+  font-weight: 300;
+  line-height: 18px;
+  font-size: 16px;
 }
 
 .btn-primary  {
-	background-color: #F46624;
-	border: none;
-	font-size: 18px;
-	font-weight: 400;
+  background-color: #F46624;
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .parentButton   {
-	text-align: center;
+  text-align: center;
 }
 
 .btn-primary:hover  {
-	background-color: #F48300 !important;
+  background-color: #F48300 !important;
 }
 
 .footer-wrap {
-	margin-top:2rem;
+  margin-top:2rem;
 }
 
 .footer{
-	color: white;
-	background-color: #F46624;
-	text-decoration: none;
-	padding: 12px 12px;
-	font-size: 16px;
-	font-weight: 400;
+  color: white;
+  background-color: #F46624;
+  text-decoration: none;
+  padding: 12px 12px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .footer:hover {
-	background-color: #F48300;
-	color: white;
-	text-decoration: none;
-	text-transform: uppercase;
+  background-color: #F48300;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 #root   {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 span#answer {
-	font-weight: 400;
-	color: white;
-	text-align: center;
-	background-color: green;
-	padding: 30px 10px;
-	height: 90px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  background-color: green;
+  padding: 30px 10px;
+  height: 90px;
 }
 
 span#answer.Yes {
     background-color: green;
 }
 span#answer.Maybe {
-		background-color: rgb(244, 223, 66);
-		color: white;
+    background-color: rgb(244, 223, 66);
+    color: white;
 }
 span#answer.No {
     background-color: red;
