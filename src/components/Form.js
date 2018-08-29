@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 
 import States from './States';
 import Results from './Results';
@@ -13,13 +15,9 @@ class Form extends Component {
       crimes: null,
       submitted: null
     };
-
-    this.handleAgeChange = this.handleAgeChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleAgeChange(event) {
+  handleAgeChange = (event) => {
     let dob = event.target.value;
     let today = new Date();
     let birthDate = new Date(dob);
@@ -29,17 +27,23 @@ class Form extends Component {
       age--;
     }
 
-    this.setState({ age: age });
+    this.setState({
+      age: age
+    });
   }
 
-  handleChange(e, name) {
+  handleChange = (e, name) => {
     const value = e.target.value;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value
+    });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ submitted: true });
+    this.setState({
+      submitted: true
+    });
   }
 
   render() {
