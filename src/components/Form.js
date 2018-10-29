@@ -148,7 +148,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col-sm-12 parentButton">
+          <div className="col-sm-12 text-center">
             <input
               id="submit"
               className="btn btn-primary"

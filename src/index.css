@@ -2,31 +2,62 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:700');
 
-html {
+html, body {
   font-family: 'Roboto', sans-serif;
-  letter-spacing: 0.3px;
+  font-size: 16px;
 }
 
-h1  {
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  margin: auto auto 0 auto;
+}
+
+h1 {
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  color: white !important;
+  color: #fff;
   background-color: #F46624;
   padding: 10px;
 }
 
 p {
+  font-weight: 300;
   margin: 1.5rem 0;
 }
 
-input[type="button"].isClicked {
-  color: white;
-  background-color: #F46624;
-  border-color: white;
+.nav-item {
+  margin-right: 5px;
 }
 
-#us-citizen-0:hover, #us-citizen-0:active, #us-citizen-0:focus, #us-citizen-1:hover, #us-citizen-1:active, #us-citizen-1:focus   {
-  color: white;
+.nav-link {
+  border-bottom: 1px solid #F46624;
+  color: rgb(43, 43, 43);
+}
+
+.nav-link:hover {
+  background-color: #F46624;
+  color: #fff;
+  font-weight: bold;
+  transition: all 500ms ease;
+}
+
+input[type="button"].isClicked {
+  color: #fff;
+  background-color: #F46624;
+  border-color: #fff;
+}
+
+#us-citizen-0:hover, #us-citizen-0:active, #us-citizen-0:focus, #us-citizen-1:hover, #us-citizen-1:active, #us-citizen-1:focus {
+  color: #fff;
   background-color: #F46624;
   outline: none;
 }
@@ -34,7 +65,6 @@ input[type="button"].isClicked {
 .title-text {
   color: #666;
   font-weight: 700;
-/*    letter-spacing: -2px;*/
   font-size: 36px;
   width: 250px;
   margin: 0 auto;
@@ -43,22 +73,20 @@ input[type="button"].isClicked {
   margin-bottom: 10px;
 }
 
-.chatter    {  
+.chatter    {
   margin-bottom: 0px;
 }
 
-.subHead    {
+.subHead {
   font-weight: 300;
 }
 
-select.form-control  {
+select.form-control {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-/*    border-radius: 0px !important;*/
-/*    -webkit-appearance:none;*/
 }
 
-input   {
+input {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -82,76 +110,42 @@ h3.stateTitle {
   margin-bottom: 30px;
 }
 
-label.eTitle    {
+label.eTitle {
   font-weight: 400;
   font-size: 20px;
   margin-top: 10px;
 }
 
-.box    {
+.box {
   border-right: 1px solid black;
 }
 
-.fa-check:before   {
+.fa-check:before {
   color: green;
 }
 
-.fa-times:before    {
+.fa-times:before {
   color: red;
 }
 
-.fa-exclamation:before    {
+.fa-exclamation:before {
   color: rgb(244, 223, 66);
 }
 
-p   {
-  font-weight: 300;
-  line-height: 18px;
-  font-size: 16px;
-}
-
-.btn-primary  {
+.btn-primary {
   background-color: #F46624;
   border: none;
   font-size: 18px;
   font-weight: 400;
 }
 
-.parentButton   {
-  text-align: center;
-}
-
-.btn-primary:hover  {
+.btn-primary:hover {
   background-color: #F48300 !important;
-}
-
-.footer-wrap {
-  margin-top:2rem;
-}
-
-.footer{
-  color: white;
-  background-color: #F46624;
-  text-decoration: none;
-  padding: 12px 12px;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.footer:hover {
-  background-color: #F48300;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-#root   {
-  margin-bottom: 50px;
 }
 
 span#answer {
   font-weight: 400;
-  color: white;
+  color: #fff;
   text-align: center;
   background-color: green;
   padding: 30px 10px;
@@ -159,19 +153,23 @@ span#answer {
 }
 
 span#answer.Yes {
-    background-color: green;
+  background-color: green;
 }
 span#answer.Maybe {
-    background-color: rgb(244, 223, 66);
-    color: white;
+  background-color: rgb(244, 223, 66);
+  color: #fff;
 }
 span#answer.No {
-    background-color: red;
+  background-color: red;
 }
 
 @media screen and (max-width: 480px) {
-    span#answer {
-        padding: 0px 16px;
-        margin-top: 5px;
-    }
+  .navbar-brand h1 {
+    font-size: 1.5rem;
+  }
+
+  span#answer {
+    padding: 0px 16px;
+    margin-top: 5px;
+  }
 }
