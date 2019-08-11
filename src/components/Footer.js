@@ -1,23 +1,27 @@
 import React from 'react';
 
 const Footer = () => {
+  let year = new Date().getFullYear();
+  // year = year;
+
   return (
     <footer className="container footer-wrap">
-      <p className="text-center">
-        <strong>
-          Find out how to register to vote in your state by following the link
-          below.
-        </strong>
+      <div className="row justify-content-between align-items-center py-3 py-md-0">
+        <p className="col-md-4">
+          <strong>Copyright {` `} { year.toString() }</strong>
+        </p>
 
-        <br />
-        
-        <a
-          href="https://vote.gov/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Register at vote.gov
-        </a>
-      </p>
+        <div className="col-md-4 text-md-right">
+          <a
+            href="https://vote.gov/"
+            className="btn btn-outline-primary"
+            target="_blank"
+            rel="noopener noreferrer">
+            Register at vote.gov
+          </a>
+        </div>
+      </div>
+
     </footer>
   );
 };

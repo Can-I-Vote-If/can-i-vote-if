@@ -132,15 +132,28 @@ label.eTitle {
   color: rgb(244, 223, 66);
 }
 
-.btn-primary {
-  background-color: #F46624;
-  border: none;
+.btn {
   font-size: 18px;
   font-weight: 400;
 }
 
+.btn-primary {
+  background-color: #F46624;
+  border: none;
+}
+
 .btn-primary:hover {
   background-color: #F48300 !important;
+}
+
+.btn-outline-primary {
+  border-color: #F46624;
+  color: #F46624;
+}
+
+.btn-outline-primary:hover {
+  background-color: #F48300 !important;
+  border-color: #F46624;
 }
 
 span#answer {
