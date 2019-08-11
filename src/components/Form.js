@@ -51,11 +51,11 @@ class Form extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-sm-12 col-lg-auto">
             <States action={e => this.handleChange(e, 'indState')} />
           </div>
 
-          <div className="col">
+          <div className="col-sm-12 col-lg-auto">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Are you a U.S. Citizen?<span className="required">*</span>
@@ -92,7 +92,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col">
+          <div className="col-sm-12 col-lg-auto">
             <div className="date form-group field-birthdate">
               <label htmlFor="birthdate" className="date-label">
                 Birthday<span className="required">*</span>
@@ -109,7 +109,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col">
+          <div className="col-sm-12 col-lg-auto">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Have you ever been charged, or convicted of a crime?<span className="required">

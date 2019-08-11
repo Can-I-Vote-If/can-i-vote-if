@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from './containers/Header';
-import Home from './containers/Home';
-import About from './containers/About';
-import Footer from './containers/Footer';
+import Header from './components/Header';
+import Home from './screens/Home';
+import About from './screens/About';
+import Footer from './components/Footer';
 
 const App = () => (
   <Router>
