@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { getStates } from '../utils/handlers';
-// import stateData from '../utils/states.json';
 
 export default class Results extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ export default class Results extends Component {
           </h3>
         </div>
 
-        <div className="col-lg-2 col-lg-offset-1">
+        <div className="col">
           <label className="eTitle">
             Citizenship{' '}
             <i
@@ -72,7 +71,7 @@ export default class Results extends Component {
           </div>
         </div>
 
-        <div className="col-lg-2">
+        <div className="col">
           <label className="eTitle">
             Age{' '}
             <i
@@ -94,7 +93,7 @@ export default class Results extends Component {
           </div>
         </div>
 
-        <div className="col-lg-2">
+        <div className="col">
           <label className="eTitle">
             Residency{' '}
             <i className="fa fa-check" id="resident" aria-hidden="true" />
@@ -102,7 +101,7 @@ export default class Results extends Component {
           <p>{info.residency}</p>
         </div>
 
-        <div className="col-lg-2">
+        <div className="col">
           <label className="eTitle">
             Crimes{' '}
             <i
@@ -128,7 +127,7 @@ export default class Results extends Component {
           </div>
         </div>
 
-        <div className="col-lg-2">
+        <div className="col">
           <label className="eTitle">
             Other <i className="fa fa-check" id="other" aria-hidden="true" />
           </label>

@@ -46,16 +46,16 @@ class Form extends Component {
     return (
       <form id="form" onSubmit={this.handleSubmit}>
         <div className="row">
-          <div className="col-lg-11 col-lg-offset-1">
+          <div className="col">
             <h3 className="subHead">Basic Information</h3>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-2 col-lg-offset-1">
+          <div className="col">
             <States action={e => this.handleChange(e, 'indState')} />
           </div>
 
-          <div className="col-lg-2">
+          <div className="col">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Are you a U.S. Citizen?<span className="required">*</span>
@@ -92,7 +92,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col-lg-2">
+          <div className="col">
             <div className="date form-group field-birthdate">
               <label htmlFor="birthdate" className="date-label">
                 Birthday<span className="required">*</span>
@@ -109,7 +109,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col-lg-5">
+          <div className="col">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Have you ever been charged, or convicted of a crime?<span className="required">
