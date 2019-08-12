@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:700');
 
 html, body {
+  color: #000022;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
@@ -32,6 +33,17 @@ h1 {
 p {
   font-weight: 300;
   margin: 1.5rem 0;
+}
+
+a {
+  color: #F46624;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #001242;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .nav-item {
@@ -132,15 +144,45 @@ label.eTitle {
   color: rgb(244, 223, 66);
 }
 
-.btn-primary {
-  background-color: #F46624;
-  border: none;
+.btn {
   font-size: 18px;
   font-weight: 400;
 }
 
+.btn:hover {
+  font-weight: 400;
+}
+
+.btn-primary {
+  background-color: #F46624;
+  border: none;
+}
+
+.btn-outline-primary {
+  border-color: #F46624;
+  color: #F46624;
+}
+
+.btn-group>.btn {
+  border-color: #ced4da;
+}
+
+.btn-group>.btn:hover,
+.btn-outline-primary:hover,
 .btn-primary:hover {
-  background-color: #F48300 !important;
+  background-color: #F46624;
+  border-color: #F46624;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #49B1B1;
+  border-color: #49B1B1;
+}
+
+.btn-secondary:hover {
+  background-color: #001242;
+  border-color: #001242;
 }
 
 span#answer {

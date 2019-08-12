@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom';
 import States from './States';
 import Results from './Results';
 
@@ -39,29 +39,37 @@ class Form extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ submitted: true });
+
+    this.props.history.push('/results', {
+      age: this.state.age,
+      citizen:this.state.citizen,
+      crimes:this.state.crimes,
+      state:this.state.indState
+    });
   }
 
   render() {
     return (
       <form id="form" onSubmit={this.handleSubmit}>
         <div className="row">
-          <div className="col-lg-11 col-lg-offset-1">
+          <div className="col">
             <h3 className="subHead">Basic Information</h3>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-2 col-lg-offset-1">
+          <div className="col-sm-12 col-lg-auto">
             <States action={e => this.handleChange(e, 'indState')} />
           </div>
 
-          <div className="col-lg-2">
+          <div className="col-sm-12 col-lg-auto">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Are you a U.S. Citizen?<span className="required">*</span>
               </label>
+
               <br />
-              <div className="btn-group" role="group" aria-label="...">
+
+              <div className="btn-group" role="group" aria-label="Citizen yes or no">
                 <input
                   type="button"
                   className={
@@ -92,7 +100,7 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col-lg-2">
+          <div className="col-sm-12 col-lg-auto">
             <div className="date form-group field-birthdate">
               <label htmlFor="birthdate" className="date-label">
                 Birthday<span className="required">*</span>
@@ -109,15 +117,17 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="col-lg-5">
+          <div className="col-sm-12 col-lg-auto">
             <div className="radio-group form-group field-us-citizen">
               <label htmlFor="us-citizen" className="radio-group-label">
                 Have you ever been charged, or convicted of a crime?<span className="required">
                   *
                 </span>
               </label>
+
               <br />
-              <div className="btn-group" role="group" aria-label="...">
+
+              <div className="btn-group" role="group" aria-label="Commited a crime yes or no">
                 <input
                   type="button"
                   className={
@@ -158,17 +168,19 @@ class Form extends Component {
           </div>
         </div>
 
-        {this.state.submitted ? (
-          <Results
-            age={this.state.age}
-            citizen={this.state.citizen}
-            crimes={this.state.crimes}
-            state={this.state.indState}
-          />
-        ) : null}
+        {
+          this.state.submitted && (
+            <Results
+              age={this.state.age}
+              citizen={this.state.citizen}
+              crimes={this.state.crimes}
+              state={this.state.indState}
+            />
+          )
+        }
       </form>
     );
   }
 }
 
-export default Form;
+export default withRouter(Form);

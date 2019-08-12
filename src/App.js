@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from './containers/Header';
-import Home from './containers/Home';
-import About from './containers/About';
-import Footer from './containers/Footer';
+import Header from './components/Header';
+import Home from './screens/Home';
+import About from './screens/About';
+import VotingLaws from './screens/VotingLaws';
+import Results from './screens/Results';
+import Footer from './components/Footer';
 
 const App = () => (
   <Router>
@@ -13,6 +15,8 @@ const App = () => (
       <main className="container-fluid pt-4">
         <Route path="/" exact component={Home} />
         <Route path="/about/" component={About} />
+        <Route path="/voting-laws/" component={VotingLaws} />
+        <Route path="/results/" component={Results} />
       </main>
       <Footer />
     </React.Fragment>
