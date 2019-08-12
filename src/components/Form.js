@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom';
 import States from './States';
 import Results from './Results';
 
@@ -39,7 +39,13 @@ class Form extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ submitted: true });
+
+    this.props.history.push('/results', {
+      age: this.state.age,
+      citizen:this.state.citizen,
+      crimes:this.state.crimes,
+      state:this.state.indState
+    });
   }
 
   render() {
@@ -177,4 +183,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default withRouter(Form);
