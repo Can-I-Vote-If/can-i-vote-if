@@ -60,8 +60,10 @@ class Form extends Component {
               <label htmlFor="us-citizen" className="radio-group-label">
                 Are you a U.S. Citizen?<span className="required">*</span>
               </label>
+
               <br />
-              <div className="btn-group" role="group" aria-label="...">
+
+              <div className="btn-group" role="group" aria-label="Citizen yes or no">
                 <input
                   type="button"
                   className={
@@ -116,8 +118,10 @@ class Form extends Component {
                   *
                 </span>
               </label>
+
               <br />
-              <div className="btn-group" role="group" aria-label="...">
+
+              <div className="btn-group" role="group" aria-label="Commited a crime yes or no">
                 <input
                   type="button"
                   className={
@@ -158,14 +162,16 @@ class Form extends Component {
           </div>
         </div>
 
-        {this.state.submitted ? (
-          <Results
-            age={this.state.age}
-            citizen={this.state.citizen}
-            crimes={this.state.crimes}
-            state={this.state.indState}
-          />
-        ) : null}
+        {
+          this.state.submitted && (
+            <Results
+              age={this.state.age}
+              citizen={this.state.citizen}
+              crimes={this.state.crimes}
+              state={this.state.indState}
+            />
+          )
+        }
       </form>
     );
   }
