@@ -48,7 +48,7 @@ export default class Results extends Component {
             </h3>
           </div>
 
-          <div className="col-sm-12 col-lg-auto">
+          <div className="col-sm-12 col-lg-6">
             <label className="eTitle">
               Citizenship{' '}
               <i
@@ -123,7 +123,7 @@ export default class Results extends Component {
             </div>
           </div>
 
-          <div className="col-sm-12 col-lg-auto">
+          <div className="col-sm-12">
             <label className="eTitle">
               Other <i className="fa fa-check" id="other" aria-hidden="true" />
             </label>
