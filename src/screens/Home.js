@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import Form from "../components/Form";
 
 const Home = () => {
+  ReactGA.pageview('/');
   return (
     <div className="container">
       <p>

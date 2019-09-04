@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 const About = () => {
+  ReactGA.pageview('/about');
   return (
     <div className="container">
       <div className="row justify-content-center">
