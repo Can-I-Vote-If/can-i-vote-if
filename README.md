@@ -14,7 +14,7 @@
 
 ## Getting Started
 ```
-$ git clone git@github.com:Can-I-Vote-If/can-i-vote-if.git
+$ git clone https://github.com/Can-I-Vote-If/can-i-vote-if.git
 $ cd can-i-vote-if
 $ yarn
 $ yarn start
